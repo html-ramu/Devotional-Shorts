@@ -1,0 +1,211 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: #0f0f0f;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  overflow: hidden;
+  height: 100dvh;
+  width: 100vw;
+}
+
+/* --- Top Header --- */
+.top-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  z-index: 10;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+  pointer-events: auto;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.yt-logo {
+  color: #ff0000;
+  font-size: 24px;
+}
+
+.logo-text {
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: -0.5px;
+}
+
+.header-icons {
+  display: flex;
+  gap: 16px;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* --- Shorts Feed Container (CSS Snap) --- */
+.shorts-container {
+  height: 100dvh;
+  width: 100%;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  /* Hide scrollbar for clean look */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.shorts-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* --- Individual Video Slide --- */
+.short-slide {
+  height: 100dvh;
+  width: 100%;
+  scroll-snap-align: start;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+}
+
+video {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* --- Overlay Controls (Right Sidebar) --- */
+.sidebar-controls {
+  position: absolute;
+  right: 12px;
+  bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 5;
+  align-items: center;
+}
+
+.control-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.control-icon {
+  width: 45px;
+  height: 45px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+.control-text {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* --- Video Info (Bottom Left) --- */
+.video-info {
+  position: absolute;
+  left: 16px;
+  bottom: 70px;
+  right: 80px;
+  z-index: 5;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+}
+
+.video-title {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+/* --- Play/Pause Tap Indicator --- */
+.play-indicator {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+  z-index: 6;
+}
+
+.play-indicator.show {
+  opacity: 1;
+}
+
+/* --- Bottom Navigation --- */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 55px;
+  background: #0f0f0f;
+  border-top: 1px solid #222;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 10;
+}
+
+.nav-item {
+  background: none;
+  border: none;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.nav-item.active {
+  opacity: 1;
+}
+
+.nav-icon {
+  font-size: 20px;
+}
+
+.nav-label {
+  font-size: 10px;
+}

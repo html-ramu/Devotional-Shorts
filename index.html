@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Devotional Shorts</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" href="#0f0f0f">
+  <link rel="icon" type="image/png" href="assets/icons/favicon.png">
+</head>
+<body>
+
+  <!-- Fake Top Header -->
+  <header class="top-header">
+    <div class="logo-area" onclick="location.reload()">
+      <span class="yt-logo">▶</span>
+      <span class="logo-text">Shorts</span>
+    </div>
+    <div class="header-icons">
+      <button class="icon-btn" onclick="location.reload()" aria-label="Search">🔍</button>
+      <button class="icon-btn" onclick="location.reload()" aria-label="Mic">🎤</button>
+    </div>
+  </header>
+
+  <!-- Main Shorts Feed Container -->
+  <main id="shorts-container" class="shorts-container">
+    <!-- Videos injected dynamically via script.js -->
+  </main>
+
+  <!-- Fake Bottom Navigation -->
+  <nav class="bottom-nav">
+    <button class="nav-item active" onclick="location.reload()">
+      <span class="nav-icon">🏠</span>
+      <span class="nav-label">Home</span>
+    </button>
+    <button class="nav-item" onclick="location.reload()">
+      <span class="nav-icon">⚡</span>
+      <span class="nav-label">Shorts</span>
+    </button>
+    <button class="nav-item" onclick="location.reload()">
+      <span class="nav-icon">➕</span>
+    </button>
+    <button class="nav-item" onclick="location.reload()">
+      <span class="nav-icon">📺</span>
+      <span class="nav-label">Subscriptions</span>
+    </button>
+    <button class="nav-item" onclick="location.reload()">
+      <span class="nav-icon">👤</span>
+      <span class="nav-label">You</span>
+    </button>
+  </nav>
+
+  <script src="script.js"></script>
+  <script>
+    // Register PWA Service Worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js')
+          .catch(err => console.log('SW registration failed:', err));
+      });
+    }
+  </script>
+</body>
+</html>
